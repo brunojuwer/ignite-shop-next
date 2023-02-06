@@ -19,7 +19,6 @@ export default function Product({ product }: ProductProps) {
   const {isFallback} = useRouter();
 
   if(isFallback) {
-    console.log('loading')
     return <p>Loading...</p>
   }
 
