@@ -1,4 +1,3 @@
-import { spawn } from "child_process";
 import { styled } from "..";
 
 export const ProductContainer = styled('main', {
@@ -62,7 +61,12 @@ export const ProductDetails = styled('div', {
     fontSize: '$md',
     cursor: 'pointer',
 
-    '&:hover': {
+    '&:disabled': {
+      cursor: 'not-allowed',
+      opacity: '0.6'
+    },
+
+    '&:not(:disabled):hover': {
       background: '$green300',
     }
   }
