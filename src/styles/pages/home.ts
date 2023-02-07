@@ -3,11 +3,10 @@ import Link from "next/link";
 
 export const HomeContainer = styled('main', {
   display: 'flex',
-  // gap: '3rem',
   width: '100%',
-  maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
   minHeight: 656,
+  position: 'relative'
 })
 
 export const Product = styled(Link, {
@@ -17,6 +16,8 @@ export const Product = styled(Link, {
   cursor: 'pointer',
   position: 'relative',
   overflow: 'hidden',
+  maxWidth: '696px',
+  width: '100%',
 
   display: 'flex',
   alignItems: 'center',
@@ -62,5 +63,44 @@ export const Product = styled(Link, {
       transform: 'translateY(0%)',
       opacity:1,
     }
+  }
+})
+
+
+export const RightArrowContainer = styled('div', {
+  position: 'fixed',
+  maxWidth: '100px',
+  width: '100%',
+  right: 0,
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  cursor: 'pointer',
+
+  transition: 'background-color 0.3s',
+
+  '&:hover': {
+    color: '$white'
+  }
+})
+
+export const LeftArrowContainer = styled('div', {
+  position: 'fixed',
+  maxWidth: '100px',
+  width: '100%',
+  left: 0,
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  cursor: 'pointer',
+
+  transition: 'background-color 0.3s',
+
+  '&:hover': {
+    color: '$white'
   }
 })
