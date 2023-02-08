@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { HomeContainer, Product } from '../styles/pages/home'
+import { HomeContainer, Product, ProductInfo } from '../styles/pages/home'
 
 import { useKeenSlider } from 'keen-slider/react'
 
@@ -12,6 +12,7 @@ import Stripe from 'stripe'
 import { Arrow } from '../components/Arrows'
 import { stripe } from '../lib/stripe'
 import { Dots } from '../components/Dots'
+import { Cart } from '../components/Cart'
 
 interface HomeProps {
  products: {
@@ -58,10 +59,13 @@ export default function Home({ products }: HomeProps) {
                 style={{maxWidth: 696 + 'px'}}
               >
                 <Image src={product.imageUrl} width={520} height={480} alt=""/>
-                <footer>
-                  <strong>{product.name}</strong>
-                  <span>{product.price}</span>
-                </footer>
+                <ProductInfo>
+                  <div>
+                    <strong>{product.name}</strong>
+                    <span>{product.price}</span>
+                  </div>
+                  <Cart />
+                </ProductInfo>
               </Product>
             )
           })

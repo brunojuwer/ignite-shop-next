@@ -6,7 +6,7 @@ export const DotsContainer = styled('div', {
   padding: '10px 0',
   justifyContent: 'center',
   position: 'fixed',
-  bottom: '15px',
+  bottom: '35px',
   left: 'calc(100vw - 50%)',
   
   
