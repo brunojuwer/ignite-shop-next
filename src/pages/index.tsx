@@ -30,13 +30,14 @@ export default function Home({ products }: HomeProps) {
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel)
     },
+    
     created(){
       setLoaded(true)
     },
     slides: {
       origin: 'center',
-      perView: 2,
-      spacing: 48,
+      perView: 3,
+      spacing: 58,
     },
   })
 
