@@ -8,6 +8,7 @@ import { Cart } from '../components/Cart'
 import * as Dialog from '@radix-ui/react-dialog'
 import { CartCheckout } from '../components/CartCheckout'
 import { useRouter } from 'next/router'
+import { CartContextProvider } from '../contexts/CartContext'
 
 globalStyles()
 
@@ -15,19 +16,23 @@ export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter()
 
   return (
-    <Container>
-      <Header isRouteSuccess={pathname === '/success'}>
-        <Link href={`/`}>
-          <Image src={logo} alt="" />
-        </Link>
-        <Dialog.Root>
-          <Dialog.Trigger style={{ backgroundColor: 'transparent', border: 0 }}>
-            <Cart />
-          </Dialog.Trigger>
-          <CartCheckout />
-        </Dialog.Root>
-      </Header>
-      <Component {...pageProps} />
-    </Container>
+    <CartContextProvider>
+      <Container>
+        <Header isRouteSuccess={pathname === '/success'}>
+          <Link href={`/`}>
+            <Image src={logo} alt="" />
+          </Link>
+          <Dialog.Root>
+            <Dialog.Trigger
+              style={{ backgroundColor: 'transparent', border: 0 }}
+            >
+              <Cart />
+            </Dialog.Trigger>
+            <CartCheckout />
+          </Dialog.Root>
+        </Header>
+        <Component {...pageProps} />
+      </Container>
+    </CartContextProvider>
   )
 }

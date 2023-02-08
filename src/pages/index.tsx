@@ -6,25 +6,28 @@ import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Stripe from 'stripe'
 import { Arrow } from '../components/Arrows'
-import { stripe } from '../lib/stripe'
-import { Dots } from '../components/Dots'
 import { Cart } from '../components/Cart'
+import { Dots } from '../components/Dots'
+import { stripe } from '../lib/stripe'
+import { CartContext } from '../contexts/CartContext'
 
 interface HomeProps {
   products: {
     id: string
     name: string
     imageUrl: string
-    price: number
+    price: string
+    defaultPriceId: string
   }[]
 }
 
 export default function Home({ products }: HomeProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
+  const { addAllProducts } = useContext(CartContext)
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slideChanged(slider) {
@@ -41,6 +44,10 @@ export default function Home({ products }: HomeProps) {
     },
   })
 
+  useEffect(() => {
+    addAllProducts(products)
+  }, [])
+
   return (
     <>
       <Head>
@@ -54,7 +61,6 @@ export default function Home({ products }: HomeProps) {
               href={`/product/${product.id}`}
               key={product.id}
               prefetch={false}
-              style={{ maxWidth: 696 + 'px' }}
             >
               <Image src={product.imageUrl} width={520} height={480} alt="" />
               <ProductInfo>
@@ -62,7 +68,7 @@ export default function Home({ products }: HomeProps) {
                   <strong>{product.name}</strong>
                   <span>{product.price}</span>
                 </div>
-                <Cart color="green" />
+                <Cart color="green" product={product.id} />
               </ProductInfo>
             </Product>
           )
@@ -111,7 +117,8 @@ export const getStaticProps: GetStaticProps = async () => {
       price: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-      }).format(price.unit_amount / 100), // divide por 100 pois vem em centavos
+      }).format(price.unit_amount / 100),
+      defaultPriceId: price.id,
     }
   })
 

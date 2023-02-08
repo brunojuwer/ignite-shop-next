@@ -35,6 +35,14 @@ export const SuccessContainer = styled('main', {
   },
 })
 
+export const ImagesSection = styled('section', {
+  display: 'flex',
+
+  'div + div': {
+    marginLeft: '-40px',
+  },
+})
+
 export const ImageContainer = styled('div', {
   width: '100%',
   maxWidth: '130px',
@@ -47,6 +55,8 @@ export const ImageContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+
+  boxShadow: '-4px -1px 73px -15px #0A0A0A',
 
   img: {
     objectFit: 'cover',
