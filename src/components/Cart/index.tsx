@@ -1,10 +1,14 @@
 import { Handbag } from "phosphor-react";
 import { CartContainer } from "./styles";
 
-export function Cart() {
+interface CartProps {
+    color?: string,
+}
+
+export function Cart({ color }: CartProps) {
     return (
-        <CartContainer>
-            <Handbag size={24} weight="bold" color="#8D8D99"/>
+        <CartContainer color={color}> 
+            <Handbag size={24} weight="bold"/>
             <div>1</div>
         </CartContainer>
     )

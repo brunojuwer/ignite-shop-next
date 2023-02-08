@@ -27,6 +27,12 @@ export const Product = styled(Link, {
     objectFit:'cover'
   },
 
+  '&:hover': {
+    footer: {
+      transform: 'translateY(0%)',
+      opacity:1,
+    }
+  }
   
 })
 
@@ -46,8 +52,8 @@ export const ProductInfo = styled('footer', {
 
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
 
-    // transform: 'translateY(110%)',
-    // opacity: 0,
+    transform: 'translateY(110%)',
+    opacity: 0,
     transition: 'all 0.2s ease-in-out',
 
     div: {
@@ -66,14 +72,6 @@ export const ProductInfo = styled('footer', {
       fontWeight: 'bold',
       color: '$green300'
     },
-  
-
-  '&:hover': {
-    footer: {
-      transform: 'translateY(0%)',
-      opacity:1,
-    }
-  }
 })
 
 

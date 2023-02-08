@@ -64,7 +64,7 @@ export default function Home({ products }: HomeProps) {
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </div>
-                  <Cart />
+                  <Cart color='green'/>
                 </ProductInfo>
               </Product>
             )
@@ -75,7 +75,7 @@ export default function Home({ products }: HomeProps) {
           loaded && instanceRef.current && (
             <>
               <Arrow 
-                left={true} 
+                left={true}
                 onClick={(e: any) => 
                   e.stopPropagation() || instanceRef.current?.prev()
                 }

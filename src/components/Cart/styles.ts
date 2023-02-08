@@ -1,7 +1,9 @@
 import { styled } from "../../styles";
 
+
 export const CartContainer = styled('div', {
     background: '$gray800',
+    color: '$gray300',
     padding: '0.75rem',
     borderRadius: 8,
     display: 'flex',
@@ -9,6 +11,25 @@ export const CartContainer = styled('div', {
     alignItems: 'center',
     position: 'relative',
     cursor: 'pointer',
+    '&:hover': {
+        color: '$white',
+    },
+
+
+    variants: {
+        color: {
+            green: {
+                background: '$green500',
+                color: '$white',
+                '&:hover':{
+                    background: '$green300',
+                },
+                'div': {
+                    display: 'none'
+                }
+            },
+        }
+    },
 
     'div': {
         width: '20px',
