@@ -1,12 +1,12 @@
-import { styled } from "..";
-import Link from "next/link";
+import { styled } from '..'
+import Link from 'next/link'
 
 export const HomeContainer = styled('main', {
   display: 'flex',
   width: '100%',
   marginLeft: 'auto',
   minHeight: 656,
-  position: 'relative'
+  position: 'relative',
 })
 
 export const Product = styled(Link, {
@@ -24,56 +24,53 @@ export const Product = styled(Link, {
   justifyContent: 'center',
 
   img: {
-    objectFit:'cover'
+    objectFit: 'cover',
   },
 
   '&:hover': {
     footer: {
       transform: 'translateY(0%)',
-      opacity:1,
-    }
-  }
-  
+      opacity: 1,
+    },
+  },
 })
-
 
 export const ProductInfo = styled('footer', {
-    position: 'absolute',
-    bottom: '0.25rem',
-    left: '0.25rem',
-    right: '0.25rem',
-    padding: '1.5rem',
+  position: 'absolute',
+  bottom: '0.25rem',
+  left: '0.25rem',
+  right: '0.25rem',
+  padding: '1.5rem',
 
-    borderRadius: 6,
-    
+  borderRadius: 6,
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+
+  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+
+  transform: 'translateY(110%)',
+  opacity: 0,
+  transition: 'all 0.2s ease-in-out',
+
+  div: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: 'column',
+    gap: '0.75rem',
+  },
 
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  strong: {
+    fontSize: '$lg',
+    color: '$gray100',
+  },
 
-    transform: 'translateY(110%)',
-    opacity: 0,
-    transition: 'all 0.2s ease-in-out',
-
-    div: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '0.75rem'
-    },
-
-    strong: {
-      fontSize: '$lg',
-      color: '$gray100'
-    },
-
-    span: {
-      fontSize: '$xl',
-      fontWeight: 'bold',
-      color: '$green300'
-    },
+  span: {
+    fontSize: '$xl',
+    fontWeight: 'bold',
+    color: '$green300',
+  },
 })
-
 
 export const RightArrowContainer = styled('div', {
   position: 'fixed',
@@ -90,8 +87,8 @@ export const RightArrowContainer = styled('div', {
   transition: 'background-color 0.3s',
 
   '&:hover': {
-    color: '$white'
-  }
+    color: '$white',
+  },
 })
 
 export const LeftArrowContainer = styled('div', {
@@ -109,6 +106,6 @@ export const LeftArrowContainer = styled('div', {
   transition: 'background-color 0.3s',
 
   '&:hover': {
-    color: '$white'
-  }
+    color: '$white',
+  },
 })

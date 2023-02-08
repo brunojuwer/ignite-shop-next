@@ -1,55 +1,53 @@
-import { styled } from "../../styles";
+import { styled } from '../../styles'
 
+export const CartContainer = styled('div', {
+  background: '$gray800',
+  color: '$gray300',
+  padding: '0.75rem',
+  borderRadius: 8,
+  border: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: 'relative',
+  cursor: 'pointer',
+  '&:hover': {
+    color: '$white',
+  },
 
-export const CartContainer = styled('button', {
-    background: '$gray800',
-    color: '$gray300',
-    padding: '0.75rem',
-    borderRadius: 8,
-    border: 0,
+  variants: {
+    color: {
+      green: {
+        background: '$green500',
+        color: '$white',
+        '&:hover': {
+          background: '$green300',
+        },
+        div: {
+          display: 'none',
+        },
+      },
+    },
+  },
+
+  div: {
+    width: '20px',
+    height: '20px',
+    padding: '0.25rem',
+    border: '2px solid $gray900',
+    borderRadius: '50%',
+    background: '$green300',
+    color: '$white',
+
+    position: 'absolute',
+    top: '-5px',
+    right: '-5px',
+
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative',
-    cursor: 'pointer',
-    '&:hover': {
-        color: '$white',
-    },
+    justifyContent: 'center',
 
-
-    variants: {
-        color: {
-            green: {
-                background: '$green500',
-                color: '$white',
-                '&:hover':{
-                    background: '$green300',
-                },
-                'div': {
-                    display: 'none'
-                }
-            },
-        }
-    },
-
-    'div': {
-        width: '20px',
-        height: '20px',
-        padding: '0.25rem',
-        border: '2px solid $gray900',
-        borderRadius: '50%',
-        background: '$green300',
-        color: '$white',
-
-        position: 'absolute',
-        top: '-5px',
-        right: '-5px',
-
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        fontSize: '0.75rem',
-        fontWeight: 'bold'
-    }
+    fontSize: '0.75rem',
+    fontWeight: 'bold',
+  },
 })

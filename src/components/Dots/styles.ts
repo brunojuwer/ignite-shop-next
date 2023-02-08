@@ -1,15 +1,11 @@
-import { styled } from "../../styles";
-
+import { styled } from '../../styles'
 
 export const DotsContainer = styled('div', {
-    
   padding: '10px 0',
   justifyContent: 'center',
   position: 'fixed',
   bottom: '35px',
   left: 'calc(100vw - 50%)',
-  
-  
 })
 
 export const Dot = styled('button', {
@@ -23,11 +19,10 @@ export const Dot = styled('button', {
   cursor: 'pointer',
 
   '&:focus': {
-    outline: 'none'
+    outline: 'none',
   },
-  
-  '&.active': {
-    background: '$green500'
-  }
 
+  '&.active': {
+    background: '$green500',
+  },
 })
