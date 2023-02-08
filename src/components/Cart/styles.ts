@@ -1,11 +1,12 @@
 import { styled } from "../../styles";
 
 
-export const CartContainer = styled('div', {
+export const CartContainer = styled('button', {
     background: '$gray800',
     color: '$gray300',
     padding: '0.75rem',
     borderRadius: 8,
+    border: 0,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
