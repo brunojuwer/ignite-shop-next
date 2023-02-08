@@ -38,9 +38,9 @@ export const SuccessContainer = styled('main', {
 export const ImageContainer = styled('div', {
   width: '100%',
   maxWidth: '130px',
-  height: '145px',
+  height: '130px',
   background: '$linearGradient',
-  borderRadius: '8px',
+  borderRadius: '50%',
   padding: '0.25rem',
   marginTop: '4rem',
 

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { Handbag } from 'phosphor-react'
 import { CartContainer } from './styles'
 
@@ -6,10 +7,16 @@ interface CartProps {
 }
 
 export function Cart({ color }: CartProps) {
-  return (
-    <CartContainer color={color}>
-      <Handbag size={24} weight="bold" />
-      <div>1</div>
-    </CartContainer>
-  )
+  const { pathname } = useRouter()
+
+  const isSuccessPage = pathname !== '/success'
+
+  if (isSuccessPage) {
+    return (
+      <CartContainer color={color}>
+        <Handbag size={24} weight="bold" />
+        <div>1</div>
+      </CartContainer>
+    )
+  }
 }

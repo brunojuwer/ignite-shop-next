@@ -7,13 +7,16 @@ import Link from 'next/link'
 import { Cart } from '../components/Cart'
 import * as Dialog from '@radix-ui/react-dialog'
 import { CartCheckout } from '../components/CartCheckout'
+import { useRouter } from 'next/router'
 
 globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { pathname } = useRouter()
+
   return (
     <Container>
-      <Header>
+      <Header isRouteSuccess={pathname === '/success'}>
         <Link href={`/`}>
           <Image src={logo} alt="" />
         </Link>
