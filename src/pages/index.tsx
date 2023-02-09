@@ -3,10 +3,11 @@ import { HomeContainer, Product, ProductInfo } from '../styles/pages/home'
 
 import { useKeenSlider } from 'keen-slider/react'
 
+import React, { useContext, useEffect, useState } from 'react'
+
 import 'keen-slider/keen-slider.min.css'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { useContext, useEffect, useState } from 'react'
 import Stripe from 'stripe'
 import { Arrow } from '../components/Arrows'
 import { Cart } from '../components/Cart'

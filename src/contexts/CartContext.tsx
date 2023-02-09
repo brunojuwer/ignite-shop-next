@@ -1,4 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 interface Order {
   id: string
@@ -15,6 +17,7 @@ interface CartContextType {
   removeFromCheckout: (id: string) => void
   allProducts: Order[]
   addAllProducts: (orders: Order[]) => void
+  notify: () => void
 }
 
 interface ContextProviderPros {
@@ -27,6 +30,10 @@ export function CartContextProvider({ children }: ContextProviderPros) {
   const [orders, setOrders] = useState<Order[]>([])
   const [allProducts, setAllProducts] = useState<Order[]>([])
 
+  const notify = () => {
+    toast.error('Este produto já está no seu carrinho!')
+  }
+
   function addAllProducts(orders: Order[]) {
     setAllProducts(orders)
   }
@@ -38,8 +45,9 @@ export function CartContextProvider({ children }: ContextProviderPros) {
       const filteredAllProducts: Order[] = allProducts.filter(
         (prod: Order) => prod.id === id,
       )
-
       setOrders((state) => [...state, ...filteredAllProducts])
+    } else {
+      notify()
     }
   }
 
@@ -58,8 +66,10 @@ export function CartContextProvider({ children }: ContextProviderPros) {
         allProducts,
         addAllProducts,
         removeFromCheckout,
+        notify,
       }}
     >
+      <ToastContainer autoClose={2000} toastClassName="dark-toast" />
       {children}
     </CartContext.Provider>
   )
