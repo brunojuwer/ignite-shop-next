@@ -27,6 +27,7 @@ export const CartContainer = styled('div', {
           display: 'none',
         },
       },
+      gray: {},
     },
   },
 

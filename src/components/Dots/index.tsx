@@ -8,19 +8,17 @@ interface DotsProps {
 export function Dots({ instanceRef, currentSlide }: DotsProps) {
   return (
     <DotsContainer>
-      {[...Array(instanceRef.current.track.details.slides.length).keys()].map(
-        (idx) => {
-          return (
-            <Dot
-              key={idx}
-              onClick={() => {
-                instanceRef.current?.moveToIdx(idx)
-              }}
-              className={'dot' + (currentSlide === idx ? ' active' : '')}
-            ></Dot>
-          )
-        },
-      )}
+      {instanceRef.current.track.details.slides.map((idx, index) => {
+        return (
+          <Dot
+            key={index}
+            onClick={() => {
+              instanceRef.current?.moveToIdx(index)
+            }}
+            className={'dot' + (currentSlide === index ? ' active' : '')}
+          ></Dot>
+        )
+      })}
     </DotsContainer>
   )
 }

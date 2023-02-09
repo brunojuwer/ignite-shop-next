@@ -28,9 +28,14 @@ export const ArrowContainer = styled('div', {
     right: '0px',
   },
 
+  '&.arrow--disabled': {
+    background: 'transparent',
+    cursor: 'not-allowed',
+  },
+
   variants: {
     color: {
-      left: {
+      leftSide: {
         background:
           'linear-gradient(270deg, rgba(0,0,0,0.0090651260504201) 0%, rgba(0,0,0,0.7959558823529411) 89%)',
 
@@ -40,7 +45,12 @@ export const ArrowContainer = styled('div', {
           background:
             'linear-gradient(270deg, rgba(0,0,0,0.0090651260504201) 0%, rgba(0,0,0,0.8959558823529411) 89%)',
         },
+        '&.arrow--disabled': {
+          background: 'transparent',
+          cursor: 'not-allowed',
+        },
       },
+      rightSide: {},
     },
   },
 })

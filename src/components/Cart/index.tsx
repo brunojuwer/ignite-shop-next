@@ -21,7 +21,10 @@ export function Cart({ color, product }: CartProps) {
 
   if (isSuccessPage) {
     return (
-      <CartContainer color={color} onClick={addToCart}>
+      <CartContainer
+        color={color === 'green' ? 'green' : 'gray'}
+        onClick={addToCart}
+      >
         <Handbag size={24} weight="bold" />
         {orders.length > 0 && <div>{orders.length}</div>}
       </CartContainer>

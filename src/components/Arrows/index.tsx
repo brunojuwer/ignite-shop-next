@@ -11,7 +11,7 @@ export function Arrow({ disabled, left, onClick }: ArrowProps) {
 
   return (
     <ArrowContainer
-      color={left && 'left'}
+      color={left ? 'leftSide' : 'rightSide'}
       onClick={onClick}
       className={`arrow ${left ? 'arrow--left' : 'arrow--right'} ${disabeld}`}
     >
