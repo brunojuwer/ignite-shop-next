@@ -64,9 +64,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const productImages = session.line_items.data.map(
     (prod: any) => prod.price.product.images[0],
   )
-
-  console.log(productImages)
-
   return {
     props: {
       customerName,

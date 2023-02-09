@@ -1,4 +1,36 @@
+import Link from 'next/link'
 import { styled } from '..'
+
+export const NavContainer = styled(Link, {
+  maxWidth: 1180,
+  width: '100%',
+  margin: '0 auto',
+  paddingBottom: '1rem',
+
+  display: 'flex',
+  alignItems: 'center',
+  gap: '5px',
+
+  cursor: 'pointer',
+  color: '$gray300',
+  textDecoration: 'none',
+
+  p: {
+    transition: 'all 0.2s ease-in-out',
+    transform: 'translateX(110%)',
+    opacity: 0,
+  },
+
+  '&:hover': {
+    color: '$white',
+
+    p: {
+      opacity: 1,
+      transform: 'translateX(0%)',
+      transition: 'all 0.3s ease-in-out',
+    },
+  },
+})
 
 export const ProductContainer = styled('main', {
   display: 'grid',

@@ -2,12 +2,14 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { ArrowLeft } from 'phosphor-react'
 import { useContext } from 'react'
 import Stripe from 'stripe'
 import { CartContext } from '../../contexts/CartContext'
 import { stripe } from '../../lib/stripe'
 import {
   ImageContainer,
+  NavContainer,
   ProductContainer,
   ProductDetails,
 } from '../../styles/pages/product'
@@ -42,6 +44,10 @@ export default function Product({ product }: ProductProps) {
       <Head>
         <title>{product.name} | Ignite Shop</title>
       </Head>
+      <NavContainer href={'/'}>
+        <ArrowLeft size={24} weight="bold" />
+        <p>Voltar</p>
+      </NavContainer>
       <ProductContainer>
         <ImageContainer>
           <Image src={product.imageUrl} width={520} height={420} alt="" />
