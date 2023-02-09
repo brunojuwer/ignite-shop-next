@@ -15,6 +15,8 @@ import {
   ReviewSection,
   Title,
 } from './styles'
+import { currencyConverter } from '../../utils/currencyConverter'
+import { useSumAmount } from '../../hooks/useSumAmount'
 
 export function CartCheckout() {
   const { orders, removeFromCheckout } = useContext(CartContext)
@@ -57,7 +59,7 @@ export function CartCheckout() {
               <ProductInfo>
                 <h4>{order.name}</h4>
                 <p>
-                  <strong>{order.price}</strong>
+                  <strong>{currencyConverter(order.price)}</strong>
                 </p>
                 <button onClick={() => removeFromCheckout(order.id)}>
                   Remover
@@ -74,7 +76,7 @@ export function CartCheckout() {
           </div>
           <div>
             <strong>Valor Total</strong>
-            <h3>R$ 270,00</h3>
+            <h3>{currencyConverter(useSumAmount(orders))}</h3>
           </div>
           <button onClick={handleBuyProduct}>Finalizar compra</button>
         </ReviewSection>
