@@ -1,5 +1,4 @@
 import { styled } from '..'
-import Link from 'next/link'
 
 export const HomeContainer = styled('main', {
   display: 'flex',
@@ -9,7 +8,7 @@ export const HomeContainer = styled('main', {
   position: 'relative',
 })
 
-export const Product = styled(Link, {
+export const Product = styled('div', {
   background: '$linearGradient',
   borderRadius: 8,
   padding: '0.25rem',

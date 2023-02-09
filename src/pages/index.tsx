@@ -13,6 +13,7 @@ import { Cart } from '../components/Cart'
 import { Dots } from '../components/Dots'
 import { stripe } from '../lib/stripe'
 import { CartContext } from '../contexts/CartContext'
+import Link from 'next/link'
 
 interface HomeProps {
   products: {
@@ -56,13 +57,10 @@ export default function Home({ products }: HomeProps) {
       <HomeContainer ref={sliderRef} className="keen-slider">
         {products.map((product) => {
           return (
-            <Product
-              className="keen-slider__slide"
-              href={`/product/${product.id}`}
-              key={product.id}
-              prefetch={false}
-            >
-              <Image src={product.imageUrl} width={520} height={480} alt="" />
+            <Product className="keen-slider__slide" key={product.id}>
+              <Link href={`/product/${product.id}`} prefetch={false}>
+                <Image src={product.imageUrl} width={520} height={480} alt="" />
+              </Link>
               <ProductInfo>
                 <div>
                   <strong>{product.name}</strong>

@@ -17,7 +17,7 @@ import {
 } from './styles'
 
 export function CartCheckout() {
-  const { orders } = useContext(CartContext)
+  const { orders, removeFromCheckout } = useContext(CartContext)
 
   const ordersDefaultPriceIds = orders.map((order) => {
     return { price: order.defaultPriceId, quantity: 1 }
@@ -59,7 +59,9 @@ export function CartCheckout() {
                 <p>
                   <strong>{order.price}</strong>
                 </p>
-                <button>Remover</button>
+                <button onClick={() => removeFromCheckout(order.id)}>
+                  Remover
+                </button>
               </ProductInfo>
             </ProductOrder>
           ))}
